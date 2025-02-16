@@ -8,9 +8,12 @@ document.querySelector('.input').addEventListener('keydown', (event) => {
 })
 
 
+let count = 0;
 
-
-
+ function counter(){
+    alert("count " + count);
+count++;
+ }
 function addToDo() {
     const inputText = document.querySelector('.input').value;
     if (inputText != "") {
@@ -53,4 +56,10 @@ function addToDo() {
         document.querySelector('.input').value = "";
 
     }
+    counter();
+     
 }
+
+document.querySelector('.clearAllButton').addEventListener('click', () => {
+    document.querySelector('.tasks').innerHTML = "";
+});
