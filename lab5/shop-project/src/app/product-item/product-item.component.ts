@@ -13,11 +13,15 @@ export class ProductItemComponent {
 
   likeProduct(){
     this.product.likes++;
+    this
   }
 
   removeProduct(){
-    this.remove.emit(this.product);
+    if(this.product.stock > 0){
+      this.product.stock--;
+      this.remove.emit(this.product);
+    }
+  
   }
-
 
 }

@@ -7,9 +7,15 @@
         <p class="card-description">{{ product.description }}</p>
         <p class="price">{{ product.price }} ₸</p>
         <p class="rating">Рейтинг {{ product.rating }}/5⭐</p>
+        <p>Stock: {{ product.stock }}</p>
+
         <div class="act-div">
             <button (click)="likeProduct()" class="act" style="background-color: lightcoral;">❤ {{ product.likes }}</button>
-            <button (click)="removeProduct()" class="act" style="background-color: red;">Удалить</button>
+            <button (click)="removeProduct()"[disabled ="product.stock === 0"]>{{ product.stock > 0 ? 'remove' : 'out of stock' }}</button>
+          
+            
+            
+            <!-- class="act" style="background-color: red;">Удалить</button> -->
 
         </div>
         <div class="but-button" style="display: flex; gap: 5px;">

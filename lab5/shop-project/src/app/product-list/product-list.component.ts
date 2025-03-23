@@ -13,6 +13,8 @@ export class ProductListComponent {
   @Input() selectedCategory! : Category;
 
   removeProduct(product:Product){
-    this.selectedCategory.products = this.selectedCategory.products.filter(p => p !== product);
+    if(product.stock > 0)
+      product.stock--;
+    // this.selectedCategory.products = this.selectedCategory.products.filter(p => p !== product);
   }
 }

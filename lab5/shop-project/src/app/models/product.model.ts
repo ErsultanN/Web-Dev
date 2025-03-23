@@ -7,6 +7,7 @@ export interface Product{
     link:string;
     kaspiLink:string;
     likes:number;
+    stock:number;
 }
 
 export interface Category{

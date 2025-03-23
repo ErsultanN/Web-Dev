@@ -7,3 +7,4 @@ color: #0A2540;">Товары категории : {{ selectedCategory.name }}</
     <app-product-item *ngFor="let product of selectedCategory.products" [product]="product" (remove)="removeProduct($event)">
     </app-product-item>
 </div>
+ 

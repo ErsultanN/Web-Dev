@@ -1,0 +1,10 @@
+<p>spacex-launches works!</p>
+<div>
+    <h1>SpaceX Launches</h1>
+    <app-launch-filter (filter)="FilterSuccesful"></app-launch-filter>
+    <ul>
+        <li *ngFor="let launch of filteredLaunches">
+            {{launch.name}} - {{launch.success ? 'Success' : 'Failure'}}
+        </li>
+    </ul>
+</div>
