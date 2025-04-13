@@ -1,0 +1,44 @@
+<div class="container">
+  <div *ngIf="loading" class="loading">
+    Loading company details...
+  </div>
+  
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+  
+  <div *ngIf="company && !loading" class="company-detail">
+    <div class="back-link">
+      <a routerLink="/companies">&larr; Back to Companies</a>
+    </div>
+    
+    <div class="company-header">
+      <h2>{{ company.name }}</h2>
+      <div class="company-info">
+        <p><strong>City:</strong> {{ company.city }}</p>
+        <p><strong>Address:</strong> {{ company.address }}</p>
+      </div>
+    </div>
+    
+    <div class="company-description">
+      <h3>About the Company</h3>
+      <p>{{ company.description }}</p>
+    </div>
+    
+    <div class="vacancies-section">
+      <h3>Vacancies ({{ vacancies.length }})</h3>
+      
+      <div *ngIf="vacancies.length === 0" class="no-vacancies">
+        No vacancies available at this company.
+      </div>
+      
+      <div *ngIf="vacancies.length > 0" class="vacancy-list">
+        <div *ngFor="let vacancy of vacancies" class="vacancy-card">
+          <h4>{{ vacancy.name }}</h4>
+          <p class="salary"><strong>Salary:</strong> ${{ vacancy.salary }}</p>
+          <p class="description">{{ vacancy.description | slice:0:150 }}...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
